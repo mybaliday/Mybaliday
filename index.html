@@ -5,221 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>myBALIday</title>
   <link rel="stylesheet" href="style.css" />
-
-  <!-- AOS CSS -->
   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
-
-  <style>
-    /* Dark Mode Variables */
-    :root {
-      --bg-color: #f9f9f9;
-      --text-color: #333;
-      --header-bg: #004c97;
-      --footer-bg: #004c97;
-      --card-bg: #fff;
-    }
-
-    body.dark-mode {
-      --bg-color: #111;
-      --text-color: #eee;
-      --header-bg: #222;
-      --footer-bg: #000;
-      --card-bg: #1a1a1a;
-    }
-
-    body {
-      background-color: var(--bg-color);
-      color: var(--text-color);
-      font-family: 'Segoe UI', sans-serif;
-      margin: 0;
-      line-height: 1.6;
-      transition: background 0.3s, color 0.3s;
-    }
-
-    header, footer {
-      background-color: var(--header-bg);
-      color: white;
-      padding: 1em 2em;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-    }
-
-    nav a {
-      color: white;
-      margin-left: 1em;
-      text-decoration: none;
-      font-weight: 500;
-    }
-
-    .toggle-mode {
-      position: fixed;
-      top: 1rem;
-      right: 1rem;
-      background: #ccc;
-      border: none;
-      padding: 0.5em 1em;
-      border-radius: 20px;
-      font-weight: bold;
-      z-index: 999;
-      cursor: pointer;
-    }
-
-    .hero {
-      background: url('https://source.unsplash.com/1600x800/?bali,nature') center/cover no-repeat;
-      color: white;
-      text-align: center;
-      padding: 6em 2em;
-    }
-
-    .container {
-      max-width: 1100px;
-      margin: auto;
-      padding: 2em;
-    }
-
-    .services {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1.5em;
-      justify-content: center;
-    }
-
-    .service {
-      background: var(--card-bg);
-      padding: 1.5em;
-      border-radius: 10px;
-      width: 300px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-      transition: transform 0.3s;
-    }
-
-    .service:hover {
-      transform: translateY(-5px);
-    }
-
-    .testimonial {
-      background: var(--card-bg);
-      border-left: 4px solid #004c97;
-      padding: 1em;
-      margin: 1em 0;
-      border-radius: 6px;
-      font-style: italic;
-    }
-
-    /* WhatsApp */
-    #whatsapp-popup {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      z-index: 999;
-    }
-
-    #wa-button {
-      background: #25D366;
-      color: white;
-      display: flex;
-      align-items: center;
-      padding: 0.5em 1em;
-      border-radius: 50px;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    .wa-text {
-      margin-left: 0.5em;
-    }
-
-    .booking-form {
-      display: flex;
-      flex-direction: column;
-      gap: 1em;
-      max-width: 500px;
-      margin: auto;
-    }
-
-    .booking-form input,
-    .booking-form select,
-    .booking-form textarea {
-      padding: 0.7em;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-      font-size: 1em;
-      background: var(--card-bg);
-      color: var(--text-color);
-    }
-
-    .booking-form button {
-      background: #004c97;
-      color: white;
-      padding: 0.8em;
-      border: none;
-      border-radius: 6px;
-      font-size: 1em;
-      cursor: pointer;
-    }
-
-    /* Carousel */
-    .carousel {
-      position: relative;
-      overflow: hidden;
-      max-width: 800px;
-      margin: 2em auto;
-      border-radius: 10px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    }
-
-    .carousel-track {
-      display: flex;
-      transition: transform 0.5s ease-in-out;
-    }
-
-    .carousel-track img {
-      width: 100%;
-      flex-shrink: 0;
-      object-fit: cover;
-    }
-
-    .carousel-btn {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background: rgba(0,0,0,0.5);
-      color: white;
-      border: none;
-      padding: 0.8em;
-      font-size: 1.5em;
-      border-radius: 50%;
-      cursor: pointer;
-      z-index: 10;
-    }
-
-    .carousel-btn:hover {
-      background: rgba(0,0,0,0.8);
-    }
-
-    .carousel-btn.prev { left: 10px; }
-    .carousel-btn.next { right: 10px; }
-
-    @media (max-width: 768px) {
-      header, footer {
-        flex-direction: column;
-        text-align: center;
-      }
-
-      .services {
-        flex-direction: column;
-        align-items: center;
-      }
-
-      .carousel-btn {
-        font-size: 1.2em;
-      }
-    }
-  </style>
 </head>
-
 <body>
   <button class="toggle-mode" onclick="toggleDarkMode()">🌙</button>
 
@@ -319,14 +106,11 @@
     &copy; 2025 myBALIday – All rights reserved.
   </footer>
 
-  <!-- AOS JS -->
+  <!-- Scripts -->
   <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
   <script>
     AOS.init({ duration: 1000, once: true });
-  </script>
 
-  <!-- Carousel Script -->
-  <script>
     let currentSlide = 0;
     function moveSlide(step) {
       const track = document.getElementById("carouselTrack");
@@ -334,10 +118,7 @@
       currentSlide = (currentSlide + step + slides) % slides;
       track.style.transform = `translateX(-${currentSlide * 100}%)`;
     }
-  </script>
 
-  <!-- WhatsApp Form -->
-  <script>
     document.getElementById("waForm").addEventListener("submit", function(e) {
       e.preventDefault();
       const nama = document.getElementById("nama").value;
@@ -345,7 +126,7 @@
       const paket = document.getElementById("paket").value;
       const pesan = document.getElementById("pesan").value;
       const url = `https://wa.me/6283115934132?text=${encodeURIComponent(
-        `Halo myBALIday 👋\nI want make an Order:\nName: ${nama}\nDate: ${tanggal}\nPackage: ${paket}\nPesan: ${pesan}`
+        `Halo myBALIday 👋\nSaya ingin melakukan pemesanan:\nNama: ${nama}\nTanggal: ${tanggal}\nPaket: ${paket}\nPesan: ${pesan}`
       )}`;
       window.open(url, '_blank');
     });
