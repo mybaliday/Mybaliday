@@ -5,8 +5,74 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>myBALIday</title>
   <link rel="stylesheet" href="style.css" />
+
+  <!-- AOS Library CSS -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg-color: #f9f9f9;
+      --text-color: #333;
+      --header-bg: #004c97;
+      --service-bg: #fff;
+      --footer-bg: #004c97;
+      --btn-color: #25D366;
+    }
+
+    body.dark-mode {
+      --bg-color: #111;
+      --text-color: #eee;
+      --header-bg: #222;
+      --service-bg: #1a1a1a;
+      --footer-bg: #000;
+      --btn-color: #128C7E;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      transition: background 0.3s, color 0.3s;
+    }
+
+    header, footer {
+      background-color: var(--header-bg);
+      color: white;
+    }
+
+    .service, .testimonial, .booking-form input, .booking-form select, .booking-form textarea {
+      background: var(--service-bg);
+      color: var(--text-color);
+    }
+
+    .booking-form input, .booking-form select, .booking-form textarea {
+      border: 1px solid #ccc;
+    }
+
+    /* Toggle Dark Mode Button */
+    .toggle-mode {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      background: #ddd;
+      color: #111;
+      padding: 0.5em 1em;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      font-weight: bold;
+      z-index: 1000;
+    }
+
+    body.dark-mode .toggle-mode {
+      background: #333;
+      color: #eee;
+    }
+  </style>
 </head>
 <body>
+
+  <!-- Dark Mode Toggle Button -->
+  <button class="toggle-mode" onclick="toggleDarkMode()">🌙</button>
 
   <!-- Header -->
   <header>
@@ -19,14 +85,14 @@
   </header>
 
   <!-- Hero -->
-  <section class="hero">
+  <section class="hero" data-aos="fade-up">
     <h1>myBALIday</h1>
     <p>Create your Own trip</p>
     <p>Explore BALI with best experience and best choice.</p>
   </section>
 
   <!-- Services -->
-  <section id="services" class="container">
+  <section id="services" class="container" data-aos="fade-up">
     <h2>Packages</h2>
     <div class="services">
       <div class="service">
@@ -49,7 +115,7 @@
   </section>
 
   <!-- Canva Embed -->
-  <section id="embed" class="container">
+  <section id="embed" class="container" data-aos="fade-up">
     <h2>People Journey</h2>
     <div class="embed-container">
       <iframe loading="lazy" src="https://www.canva.com/design/DAGscyqiXZM/gejsSdIXW8YcwoGhCpMb8Q/watch?embed" allowfullscreen></iframe>
@@ -58,7 +124,7 @@
   </section>
 
   <!-- Testimonials -->
-  <section id="testimonials" class="testimonials container">
+  <section id="testimonials" class="testimonials container" data-aos="fade-up">
     <h2>Current Review</h2>
     <div class="testimonial">
       <blockquote>"Pelayanan sangat memuaskan dan profesional." – Andreas</blockquote>
@@ -69,7 +135,7 @@
   </section>
 
   <!-- Contact -->
-  <section id="contact" class="container">
+  <section id="contact" class="container" data-aos="fade-up">
     <h2>Contact us</h2>
     <p>
       Email: <a href="mailto:info@mybaliday.com">info@mybaliday.com</a><br>
@@ -86,7 +152,7 @@
   </div>
 
   <!-- Booking Form (WhatsApp) -->
-  <section id="booking" class="container">
+  <section id="booking" class="container" data-aos="fade-up">
     <h2>Formulir Pemesanan</h2>
     <form id="waForm" class="booking-form">
       <label>Nama Lengkap:
@@ -115,11 +181,10 @@
     &copy; 2025 myBALIday – All rights reserved.
   </footer>
 
-  <!-- Script WhatsApp -->
+  <!-- WhatsApp Form Script -->
   <script>
     document.getElementById("waForm").addEventListener("submit", function(e) {
       e.preventDefault();
-      
       const nama = document.getElementById("nama").value;
       const tanggal = document.getElementById("tanggal").value;
       const paket = document.getElementById("paket").value;
@@ -137,6 +202,19 @@
 
       window.open(waURL, '_blank');
     });
+  </script>
+
+  <!-- AOS Init -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 1000, once: true });
+  </script>
+
+  <!-- Dark Mode Script -->
+  <script>
+    function toggleDarkMode() {
+      document.body.classList.toggle('dark-mode');
+    }
   </script>
 
 </body>
