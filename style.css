@@ -1,5 +1,4 @@
-body {
-  background: url('images/bali.jpg') no-repeat center center fixed;
-  background-size: cover;
-  font-family: sans-serif;
+.hero {
+  background: url('images/bali-gate.png') center center/cover no-repeat;
 }
+
