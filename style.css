@@ -54,10 +54,34 @@ nav a {
 }
 
 .hero {
-  background: url('bali-gate.png') center/cover no-repeat;
+  position: relative;
+  min-height: 100vh;
+  background: url('bali-gate.png') center center / cover no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   color: white;
   text-align: center;
-  padding: 6em 2em;
+  padding: 4em 2em;
+  z-index: 1;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* overlay hitam semi transparan */
+  z-index: 0;
+}
+
+.hero h1,
+.hero p {
+  z-index: 2;
+  position: relative;
+}
+
 }
 
 .container {
