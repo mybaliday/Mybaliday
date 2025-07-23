@@ -8,8 +8,10 @@
   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
 </head>
 <body>
+  <!-- Tombol Toggle Mode -->
   <button class="toggle-mode" onclick="toggleDarkMode()">🌙</button>
 
+  <!-- Header -->
   <header>
     <div><strong>myBALIday</strong></div>
     <nav>
@@ -19,12 +21,14 @@
     </nav>
   </header>
 
+  <!-- Hero -->
   <section class="hero" data-aos="fade-up">
     <h1>myBALIday</h1>
     <p>Create your Own trip</p>
     <p>Explore BALI with best experience and best choice.</p>
   </section>
 
+  <!-- Services -->
   <section id="services" class="container" data-aos="fade-up">
     <h2>Packages</h2>
     <div class="services">
@@ -47,7 +51,7 @@
     </div>
   </section>
 
-  <!-- Carousel Gallery -->
+  <!-- Gallery Carousel -->
   <section id="gallery" class="container" data-aos="fade-up">
     <h2>Galeri Perjalanan</h2>
     <div class="carousel">
@@ -61,12 +65,14 @@
     </div>
   </section>
 
+  <!-- Testimonials -->
   <section id="testimonials" class="container" data-aos="fade-up">
     <h2>Current Review</h2>
     <div class="testimonial">"Pelayanan sangat memuaskan dan profesional." – Andreas</div>
     <div class="testimonial">"Tempat wisata pilihan keren & tepat waktu." – Alexandr</div>
   </section>
 
+  <!-- Contact -->
   <section id="contact" class="container" data-aos="fade-up">
     <h2>Contact us</h2>
     <p>
@@ -75,12 +81,16 @@
     </p>
   </section>
 
-  <!-- Booking -->
+  <!-- Booking Form -->
   <section id="booking" class="container" data-aos="fade-up">
     <h2>Formulir Pemesanan</h2>
     <form id="waForm" class="booking-form">
-      <label>Nama Lengkap: <input type="text" id="nama" required /></label>
-      <label>Tanggal Perjalanan: <input type="date" id="tanggal" required /></label>
+      <label>Nama Lengkap:
+        <input type="text" id="nama" required />
+      </label>
+      <label>Tanggal Perjalanan:
+        <input type="date" id="tanggal" required />
+      </label>
       <label>Paket:
         <select id="paket" required>
           <option value="">-- Pilih Paket --</option>
@@ -89,12 +99,14 @@
           <option value="Rental">Rental</option>
         </select>
       </label>
-      <label>Pesan: <textarea id="pesan" rows="4"></textarea></label>
+      <label>Pesan:
+        <textarea id="pesan" rows="4"></textarea>
+      </label>
       <button type="submit">Kirim via WhatsApp</button>
     </form>
   </section>
 
-  <!-- WhatsApp Floating -->
+  <!-- WhatsApp Floating Button -->
   <div id="whatsapp-popup">
     <a href="https://wa.me/6283115934132?text=Halo%20myBALIday,%20saya%20ingin%20bertanya%20lebih%20lanjut" target="_blank" id="wa-button">
       <img src="https://img.icons8.com/color/48/000000/whatsapp--v1.png" alt="WhatsApp">
@@ -102,6 +114,7 @@
     </a>
   </div>
 
+  <!-- Footer -->
   <footer>
     &copy; 2025 myBALIday – All rights reserved.
   </footer>
@@ -125,6 +138,7 @@
       const tanggal = document.getElementById("tanggal").value;
       const paket = document.getElementById("paket").value;
       const pesan = document.getElementById("pesan").value;
+
       const url = `https://wa.me/6283115934132?text=${encodeURIComponent(
         `Halo myBALIday 👋\nSaya ingin melakukan pemesanan:\nNama: ${nama}\nTanggal: ${tanggal}\nPaket: ${paket}\nPesan: ${pesan}`
       )}`;
