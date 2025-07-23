@@ -1,4 +1,154 @@
-.hero {
-  background: url('images/bali-gate.png') center center/cover no-repeat;
+body {
+  margin: 0;
+  font-family: sans-serif;
+  color: #333;
+  line-height: 1.6;
 }
 
+header {
+  background: #004c97;
+  color: white;
+  padding: 1em 2em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header nav a {
+  color: white;
+  margin-left: 1em;
+  text-decoration: none;
+}
+
+.hero {
+  position: relative;
+  background: url('bali-gate.png') center center/cover no-repeat;
+  height: 100vh;
+  color: white;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 1;
+}
+
+.hero h1,
+.hero p {
+  position: relative;
+  z-index: 2;
+  padding: 0.5rem 2rem;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 2em auto;
+  padding: 0 1em;
+}
+
+.services {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2em;
+}
+
+.service {
+  padding: 1.5em;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.testimonials {
+  background: #f9f9f9;
+  padding: 2em 1em;
+}
+
+.testimonial {
+  margin-bottom: 1.5em;
+}
+
+footer {
+  background: #222;
+  color: #ccc;
+  text-align: center;
+  padding: 1em;
+}
+
+/* WhatsApp Button */
+#whatsapp-popup {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 9999;
+}
+
+#wa-button {
+  display: flex;
+  align-items: center;
+  background-color: #25d366;
+  color: white;
+  text-decoration: none;
+  border-radius: 40px;
+  padding: 10px 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+#wa-button:hover {
+  transform: scale(1.05);
+}
+
+#wa-button img {
+  width: 28px;
+  height: 28px;
+  margin-right: 10px;
+}
+
+.wa-text {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+@media screen and (max-width: 480px) {
+  .wa-text {
+    display: none;
+  }
+
+  #wa-button {
+    padding: 12px;
+    border-radius: 50%;
+  }
+
+  #wa-button img {
+    margin: 0;
+  }
+}
+
+/* Canva Embed Styling */
+.embed-container {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-top: 56.25%;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(63,69,81,0.2);
+}
+
+.embed-container iframe {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  border: none;
+}
