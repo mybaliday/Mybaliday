@@ -6,92 +6,238 @@
   <title>myBALIday</title>
   <link rel="stylesheet" href="style.css" />
 
-  <!-- AOS Library CSS -->
+  <!-- AOS CSS -->
   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
 
   <style>
+    /* Dark Mode Variables */
     :root {
       --bg-color: #f9f9f9;
       --text-color: #333;
       --header-bg: #004c97;
-      --service-bg: #fff;
       --footer-bg: #004c97;
-      --btn-color: #25D366;
+      --card-bg: #fff;
     }
 
     body.dark-mode {
       --bg-color: #111;
       --text-color: #eee;
       --header-bg: #222;
-      --service-bg: #1a1a1a;
       --footer-bg: #000;
-      --btn-color: #128C7E;
+      --card-bg: #1a1a1a;
     }
 
     body {
       background-color: var(--bg-color);
       color: var(--text-color);
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      line-height: 1.6;
       transition: background 0.3s, color 0.3s;
     }
 
     header, footer {
       background-color: var(--header-bg);
       color: white;
+      padding: 1em 2em;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
     }
 
-    .service, .testimonial, .booking-form input, .booking-form select, .booking-form textarea {
-      background: var(--service-bg);
-      color: var(--text-color);
+    nav a {
+      color: white;
+      margin-left: 1em;
+      text-decoration: none;
+      font-weight: 500;
     }
 
-    .booking-form input, .booking-form select, .booking-form textarea {
-      border: 1px solid #ccc;
-    }
-
-    /* Toggle Dark Mode Button */
     .toggle-mode {
       position: fixed;
       top: 1rem;
       right: 1rem;
-      background: #ddd;
-      color: #111;
-      padding: 0.5em 1em;
+      background: #ccc;
       border: none;
+      padding: 0.5em 1em;
       border-radius: 20px;
-      cursor: pointer;
       font-weight: bold;
-      z-index: 1000;
+      z-index: 999;
+      cursor: pointer;
     }
 
-    body.dark-mode .toggle-mode {
-      background: #333;
-      color: #eee;
+    .hero {
+      background: url('https://source.unsplash.com/1600x800/?bali,nature') center/cover no-repeat;
+      color: white;
+      text-align: center;
+      padding: 6em 2em;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 2em;
+    }
+
+    .services {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5em;
+      justify-content: center;
+    }
+
+    .service {
+      background: var(--card-bg);
+      padding: 1.5em;
+      border-radius: 10px;
+      width: 300px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      transition: transform 0.3s;
+    }
+
+    .service:hover {
+      transform: translateY(-5px);
+    }
+
+    .testimonial {
+      background: var(--card-bg);
+      border-left: 4px solid #004c97;
+      padding: 1em;
+      margin: 1em 0;
+      border-radius: 6px;
+      font-style: italic;
+    }
+
+    /* WhatsApp */
+    #whatsapp-popup {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 999;
+    }
+
+    #wa-button {
+      background: #25D366;
+      color: white;
+      display: flex;
+      align-items: center;
+      padding: 0.5em 1em;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .wa-text {
+      margin-left: 0.5em;
+    }
+
+    .booking-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1em;
+      max-width: 500px;
+      margin: auto;
+    }
+
+    .booking-form input,
+    .booking-form select,
+    .booking-form textarea {
+      padding: 0.7em;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1em;
+      background: var(--card-bg);
+      color: var(--text-color);
+    }
+
+    .booking-form button {
+      background: #004c97;
+      color: white;
+      padding: 0.8em;
+      border: none;
+      border-radius: 6px;
+      font-size: 1em;
+      cursor: pointer;
+    }
+
+    /* Carousel */
+    .carousel {
+      position: relative;
+      overflow: hidden;
+      max-width: 800px;
+      margin: 2em auto;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .carousel-track {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .carousel-track img {
+      width: 100%;
+      flex-shrink: 0;
+      object-fit: cover;
+    }
+
+    .carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0,0,0,0.5);
+      color: white;
+      border: none;
+      padding: 0.8em;
+      font-size: 1.5em;
+      border-radius: 50%;
+      cursor: pointer;
+      z-index: 10;
+    }
+
+    .carousel-btn:hover {
+      background: rgba(0,0,0,0.8);
+    }
+
+    .carousel-btn.prev { left: 10px; }
+    .carousel-btn.next { right: 10px; }
+
+    @media (max-width: 768px) {
+      header, footer {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .services {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .carousel-btn {
+        font-size: 1.2em;
+      }
     }
   </style>
 </head>
-<body>
 
-  <!-- Dark Mode Toggle Button -->
+<body>
   <button class="toggle-mode" onclick="toggleDarkMode()">🌙</button>
 
-  <!-- Header -->
   <header>
     <div><strong>myBALIday</strong></div>
     <nav>
       <a href="#services">Services</a>
-      <a href="#about">About</a>
+      <a href="#gallery">Gallery</a>
       <a href="#contact">Contact</a>
     </nav>
   </header>
 
-  <!-- Hero -->
   <section class="hero" data-aos="fade-up">
     <h1>myBALIday</h1>
     <p>Create your Own trip</p>
     <p>Explore BALI with best experience and best choice.</p>
   </section>
 
-  <!-- Services -->
   <section id="services" class="container" data-aos="fade-up">
     <h2>Packages</h2>
     <div class="services">
@@ -114,27 +260,26 @@
     </div>
   </section>
 
-  <!-- Canva Embed -->
-  <section id="embed" class="container" data-aos="fade-up">
-    <h2>People Journey</h2>
-    <div class="embed-container">
-      <iframe loading="lazy" src="https://www.canva.com/design/DAGscyqiXZM/gejsSdIXW8YcwoGhCpMb8Q/watch?embed" allowfullscreen></iframe>
+  <!-- Carousel Gallery -->
+  <section id="gallery" class="container" data-aos="fade-up">
+    <h2>Galeri Perjalanan</h2>
+    <div class="carousel">
+      <button class="carousel-btn prev" onclick="moveSlide(-1)">&#10094;</button>
+      <div class="carousel-track" id="carouselTrack">
+        <img src="https://source.unsplash.com/800x500/?bali,temple" alt="Bali Temple">
+        <img src="https://source.unsplash.com/800x500/?bali,beach" alt="Bali Beach">
+        <img src="https://source.unsplash.com/800x500/?bali,waterfall" alt="Bali Waterfall">
+      </div>
+      <button class="carousel-btn next" onclick="moveSlide(1)">&#10095;</button>
     </div>
-    <p><a href="https://www.canva.com/design/DAGscyqiXZM/gejsSdIXW8YcwoGhCpMb8Q/watch?utm_source=link" target="_blank" rel="noopener">Our Social Media</a></p>
   </section>
 
-  <!-- Testimonials -->
-  <section id="testimonials" class="testimonials container" data-aos="fade-up">
+  <section id="testimonials" class="container" data-aos="fade-up">
     <h2>Current Review</h2>
-    <div class="testimonial">
-      <blockquote>"Pelayanan sangat memuaskan dan profesional." – Andreas</blockquote>
-    </div>
-    <div class="testimonial">
-      <blockquote>"Tempat wisata pilihan keren & tepat waktu." – Alexandr</blockquote>
-    </div>
+    <div class="testimonial">"Pelayanan sangat memuaskan dan profesional." – Andreas</div>
+    <div class="testimonial">"Tempat wisata pilihan keren & tepat waktu." – Alexandr</div>
   </section>
 
-  <!-- Contact -->
   <section id="contact" class="container" data-aos="fade-up">
     <h2>Contact us</h2>
     <p>
@@ -143,24 +288,12 @@
     </p>
   </section>
 
-  <!-- WhatsApp Floating Button -->
-  <div id="whatsapp-popup">
-    <a href="https://wa.me/6283115934132?text=Halo%20myBALIday,%20saya%20ingin%20bertanya%20lebih%20lanjut" target="_blank" id="wa-button">
-      <img src="https://img.icons8.com/color/48/000000/whatsapp--v1.png" alt="WhatsApp">
-      <span class="wa-text">Chat via WhatsApp</span>
-    </a>
-  </div>
-
-  <!-- Booking Form (WhatsApp) -->
+  <!-- Booking -->
   <section id="booking" class="container" data-aos="fade-up">
     <h2>Formulir Pemesanan</h2>
     <form id="waForm" class="booking-form">
-      <label>Nama Lengkap:
-        <input type="text" id="nama" required />
-      </label>
-      <label>Tanggal Perjalanan:
-        <input type="date" id="tanggal" required />
-      </label>
+      <label>Nama Lengkap: <input type="text" id="nama" required /></label>
+      <label>Tanggal Perjalanan: <input type="date" id="tanggal" required /></label>
       <label>Paket:
         <select id="paket" required>
           <option value="">-- Pilih Paket --</option>
@@ -169,19 +302,41 @@
           <option value="Rental">Rental</option>
         </select>
       </label>
-      <label>Pesan:
-        <textarea id="pesan" rows="4"></textarea>
-      </label>
+      <label>Pesan: <textarea id="pesan" rows="4"></textarea></label>
       <button type="submit">Kirim via WhatsApp</button>
     </form>
   </section>
 
-  <!-- Footer -->
+  <!-- WhatsApp Floating -->
+  <div id="whatsapp-popup">
+    <a href="https://wa.me/6283115934132?text=Halo%20myBALIday,%20saya%20ingin%20bertanya%20lebih%20lanjut" target="_blank" id="wa-button">
+      <img src="https://img.icons8.com/color/48/000000/whatsapp--v1.png" alt="WhatsApp">
+      <span class="wa-text">Chat via WhatsApp</span>
+    </a>
+  </div>
+
   <footer>
     &copy; 2025 myBALIday – All rights reserved.
   </footer>
 
-  <!-- WhatsApp Form Script -->
+  <!-- AOS JS -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 1000, once: true });
+  </script>
+
+  <!-- Carousel Script -->
+  <script>
+    let currentSlide = 0;
+    function moveSlide(step) {
+      const track = document.getElementById("carouselTrack");
+      const slides = track.children.length;
+      currentSlide = (currentSlide + step + slides) % slides;
+      track.style.transform = `translateX(-${currentSlide * 100}%)`;
+    }
+  </script>
+
+  <!-- WhatsApp Form -->
   <script>
     document.getElementById("waForm").addEventListener("submit", function(e) {
       e.preventDefault();
@@ -189,33 +344,15 @@
       const tanggal = document.getElementById("tanggal").value;
       const paket = document.getElementById("paket").value;
       const pesan = document.getElementById("pesan").value;
-
-      const noWA = "6283115934132";
-      const waURL = `https://wa.me/${noWA}?text=` + encodeURIComponent(
-        `Halo myBALIday 👋%0A` +
-        `Saya ingin melakukan pemesanan:%0A` +
-        `Nama: ${nama}%0A` +
-        `Tanggal: ${tanggal}%0A` +
-        `Paket: ${paket}%0A` +
-        `Pesan: ${pesan}`
-      );
-
-      window.open(waURL, '_blank');
+      const url = `https://wa.me/6283115934132?text=${encodeURIComponent(
+        `Halo myBALIday 👋\nI want make an Order:\nName: ${nama}\nDate: ${tanggal}\nPackage: ${paket}\nPesan: ${pesan}`
+      )}`;
+      window.open(url, '_blank');
     });
-  </script>
 
-  <!-- AOS Init -->
-  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-  <script>
-    AOS.init({ duration: 1000, once: true });
-  </script>
-
-  <!-- Dark Mode Script -->
-  <script>
     function toggleDarkMode() {
       document.body.classList.toggle('dark-mode');
     }
   </script>
-
 </body>
 </html>
