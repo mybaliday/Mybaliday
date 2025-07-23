@@ -1,219 +1,207 @@
-/* RESET */
+/* Reset */
 * {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 
 body {
-  margin: 0;
-  font-family: sans-serif;
+  font-family: 'Segoe UI', sans-serif;
+  background: #f9f9f9;
   color: #333;
   line-height: 1.6;
 }
 
-/* HEADER */
+/* Header */
 header {
-  background: #004c97;
+  background-color: #004c97;
   color: white;
   padding: 1em 2em;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 header nav a {
   color: white;
-  margin-left: 1em;
   text-decoration: none;
-}
-
-/* HERO */
-.hero {
-  position: relative;
-  background: url('bali-gate.png') center center/cover no-repeat;
-  background-color: #222; /* fallback color */
-  height: 100vh;
-  color: white;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.hero::before {
-  content: "";
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: rgba(0, 0, 0, 0.4);
-  z-index: 1;
-}
-
-.hero h1,
-.hero p {
-  position: relative;
-  z-index: 2;
-  padding: 0.5rem 2rem;
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeInUp 1s forwards;
-}
-
-.hero h1 {
-  animation-delay: 0.3s;
-}
-
-.hero p:nth-of-type(1) {
-  animation-delay: 0.6s;
-}
-
-.hero p:nth-of-type(2) {
-  animation-delay: 0.9s;
-}
-
-@keyframes fadeInUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* CONTAINER */
-.container {
-  max-width: 1000px;
-  margin: 2em auto;
-  padding: 0 1em;
-}
-
-/* SERVICES */
-.services {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2em;
-}
-
-.service {
-  padding: 1.5em;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  text-align: center;
-}
-
-/* TESTIMONIALS */
-.testimonials {
-  background: #f9f9f9;
-  padding: 2em 1em;
-}
-
-.testimonial {
-  margin-bottom: 1.5em;
-}
-
-/* FOOTER */
-footer {
-  background: #222;
-  color: #ccc;
-  text-align: center;
-  padding: 1em;
-}
-
-/* WHATSAPP FLOATING BUTTON */
-#whatsapp-popup {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  z-index: 9999;
-}
-
-#wa-button {
-  display: flex;
-  align-items: center;
-  background-color: #25d366;
-  color: white;
-  text-decoration: none;
-  border-radius: 40px;
-  padding: 10px 15px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s ease;
-}
-
-#wa-button:hover {
-  transform: scale(1.05);
-}
-
-#wa-button img {
-  width: 28px;
-  height: 28px;
-  margin-right: 10px;
-}
-
-.wa-text {
-  font-size: 16px;
+  margin-left: 1.5em;
   font-weight: 500;
 }
 
-/* CANVA EMBED */
+header nav a:hover {
+  text-decoration: underline;
+}
+
+/* Hero */
+.hero {
+  background: url('https://source.unsplash.com/1600x800/?bali,nature') center/cover no-repeat;
+  color: white;
+  text-align: center;
+  padding: 6em 2em;
+}
+
+.hero h1 {
+  font-size: 3em;
+}
+
+.hero p {
+  font-size: 1.2em;
+  margin-top: 0.5em;
+}
+
+/* Container Global */
+.container {
+  padding: 3em 2em;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* Services */
+.services {
+  display: flex;
+  gap: 2em;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 2em;
+}
+
+.service {
+  background: #fff;
+  padding: 1.5em;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  width: 300px;
+  transition: transform 0.3s;
+}
+
+.service:hover {
+  transform: translateY(-5px);
+}
+
+/* Embed Canva */
 .embed-container {
   position: relative;
   width: 100%;
-  height: 0;
-  padding-top: 56.25%;
-  overflow: hidden;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(63,69,81,0.2);
+  padding-bottom: 56.25%;
+  margin: 2em 0;
 }
 
 .embed-container iframe {
   position: absolute;
   width: 100%;
   height: 100%;
-  top: 0;
-  left: 0;
   border: none;
 }
 
-/* FORMULIR BOOKING */
+/* Testimonials */
+.testimonials {
+  background: #eaf4ff;
+  border-radius: 10px;
+}
+
+.testimonial {
+  margin-top: 1em;
+  font-style: italic;
+  padding: 1em;
+  background: white;
+  border-left: 5px solid #004c97;
+  border-radius: 5px;
+}
+
+/* Contact Section */
+#contact a {
+  color: #004c97;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+#contact a:hover {
+  text-decoration: underline;
+}
+
+/* WhatsApp Floating Button */
+#whatsapp-popup {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 999;
+}
+
+#wa-button {
+  display: flex;
+  align-items: center;
+  background: #25D366;
+  color: white;
+  padding: 0.6em 1em;
+  border-radius: 50px;
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: background 0.3s;
+}
+
+#wa-button:hover {
+  background: #1ebe5b;
+}
+
+.wa-text {
+  margin-left: 0.5em;
+  font-weight: 600;
+}
+
+/* Formulir Booking */
 .booking-form {
   display: flex;
   flex-direction: column;
   gap: 1em;
-  margin-top: 1em;
-}
-
-.booking-form label {
-  display: flex;
-  flex-direction: column;
-  font-weight: bold;
+  max-width: 500px;
+  margin: 2em auto;
 }
 
 .booking-form input,
 .booking-form select,
 .booking-form textarea {
-  padding: 0.5em;
+  padding: 0.75em;
+  border-radius: 6px;
   border: 1px solid #ccc;
-  border-radius: 5px;
+  font-size: 1em;
 }
 
 .booking-form button {
-  padding: 0.75em;
   background: #004c97;
   color: white;
+  padding: 0.75em;
   border: none;
-  border-radius: 5px;
-  font-weight: bold;
+  border-radius: 6px;
+  font-size: 1em;
   cursor: pointer;
   transition: background 0.3s;
 }
 
 .booking-form button:hover {
-  background: #0262c7;
+  background: #00376c;
 }
 
-/* RESPONSIVE MOBILE */
-@media screen and (max-width: 768px) {
-  .hero {
-    height: 70vh;
-    padding: 2em;
+/* Footer */
+footer {
+  background: #004c97;
+  color: white;
+  text-align: center;
+  padding: 1em;
+  margin-top: 2em;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .services {
+    flex-direction: column;
+    align-items: center;
   }
 
   .hero h1 {
@@ -224,26 +212,23 @@ footer {
     font-size: 1em;
   }
 
-  .container {
-    padding: 0 0.8em;
+  #wa-button {
+    padding: 0.5em 1em;
   }
 }
 
-@media screen and (max-width: 480px) {
-  .wa-text {
-    display: none;
+/* Scroll animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
   }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
-  #wa-button {
-    padding: 12px;
-    border-radius: 50%;
-  }
-
-  #wa-button img {
-    margin: 0;
-  }
-
-  .container {
-    padding: 0 0.5em;
-  }
+section {
+  animation: fadeInUp 1s ease both;
 }
