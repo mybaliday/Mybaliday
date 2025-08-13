@@ -285,3 +285,60 @@ body.dark-mode .toggle-mode:hover {
     font-size: 1.2em;
   }
 }
+/* Lightbox Styles */
+.lightbox {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  padding-top: 60px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background: rgba(0,0,0,0.9);
+}
+
+.lightbox-content {
+  margin: auto;
+  display: block;
+  max-width: 90%;
+  max-height: 80vh;
+  animation: zoomIn 0.3s ease;
+}
+
+@keyframes zoomIn {
+  from {transform: scale(0.8);}
+  to {transform: scale(1);}
+}
+
+#lightbox-caption {
+  text-align: center;
+  color: #ccc;
+  margin-top: 10px;
+}
+
+.lightbox .close {
+  position: absolute;
+  top: 20px;
+  right: 35px;
+  font-size: 40px;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.lightbox .close:hover {
+  color: #f1f1f1;
+}
+
+/* Buat pointer saat hover */
+.carousel-track img {
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.carousel-track img:hover {
+  transform: scale(1.05);
+}
