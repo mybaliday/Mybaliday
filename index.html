@@ -52,19 +52,28 @@
     </div>
   </section>
 
-  <!-- Gallery Carousel -->
-  <section id="gallery" class="container" data-aos="fade-up">
-    <h2>Galeri Perjalanan</h2>
-    <div class="carousel">
-      <button class="carousel-btn prev" onclick="moveSlide(-1)">&#10094;</button>
-      <div class="carousel-track" id="carouselTrack">
-        <img src="https://source.unsplash.com/800x500/?bali,temple" alt="Bali Temple">
-        <img src="https://source.unsplash.com/800x500/?bali,beach" alt="Bali Beach">
-        <img src="https://source.unsplash.com/800x500/?bali,waterfall" alt="Bali Waterfall">
-      </div>
-      <button class="carousel-btn next" onclick="moveSlide(1)">&#10095;</button>
+ <!-- Gallery Carousel -->
+<section id="gallery" class="container" data-aos="fade-up">
+  <h2>Galeri Perjalanan</h2>
+  <div class="carousel">
+    <button class="carousel-btn prev" onclick="moveSlide(-1)">&#10094;</button>
+    <div class="carousel-track" id="carouselTrack">
+      <img src="https://source.unsplash.com/800x500/?bali,temple" alt="Bali Temple" onclick="openLightbox(this.src, this.alt)">
+      <img src="https://source.unsplash.com/800x500/?bali,beach" alt="Bali Beach" onclick="openLightbox(this.src, this.alt)">
+      <img src="https://source.unsplash.com/800x500/?bali,waterfall" alt="Bali Waterfall" onclick="openLightbox(this.src, this.alt)">
+      <img src="https://source.unsplash.com/800x500/?bali,mountain" alt="Bali Mountain" onclick="openLightbox(this.src, this.alt)">
+      <img src="https://source.unsplash.com/800x500/?bali,forest" alt="Bali Forest" onclick="openLightbox(this.src, this.alt)">
     </div>
-  </section>
+    <button class="carousel-btn next" onclick="moveSlide(1)">&#10095;</button>
+  </div>
+</section>
+
+<!-- Lightbox Modal -->
+<div id="lightbox" class="lightbox" onclick="closeLightbox()">
+  <span class="close">&times;</span>
+  <img class="lightbox-content" id="lightbox-img">
+  <div id="lightbox-caption"></div>
+</div>
 
   <!-- Testimonials -->
   <section id="testimonials" class="container" data-aos="fade-up">
